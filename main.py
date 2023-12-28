@@ -1,5 +1,5 @@
 from ota import OTAUpdater
-from WIFI_CONFIG import SSID, PSK
+from WIFI_CONFIG import SSID, PASSWORD
 
 import time
 from cosmic import CosmicUnicorn
@@ -27,7 +27,7 @@ centery=(HEIGHT//2)
 def checkVER():
     firmware_url = "https://github.com/smebridge/ricoad_pub/main/"
 
-    ota_updater = OTAUpdater(SSID, PSK, firmware_url, "main.py")
+    ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 
     ota_updater.download_and_install_update_if_available()
 
