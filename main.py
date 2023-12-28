@@ -7,7 +7,7 @@ from picographics import PicoGraphics, DISPLAY_COSMIC_UNICORN as DISPLAY
 
 machine.freq(200000000)
 
-#test 2
+#test 3
 
 cu = CosmicUnicorn()
 graphics = PicoGraphics(DISPLAY)
@@ -33,7 +33,7 @@ def checkVER():
 
 def BOB():
     graphics.set_pen(YELLOW)
-    graphics.circle(centerx, centery, 10)
+    graphics.circle(centerx, centery, 16)
 
     graphics.set_pen(BLACK)
     graphics.circle(centerx, centery, 8)
