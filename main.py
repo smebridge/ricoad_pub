@@ -25,7 +25,7 @@ centerx=(WIDTH//2)
 centery=(HEIGHT//2)
 
 def checkVER():
-    firmware_url = "https://github.com/smebridge/ricoad_pub"
+    firmware_url = "https://github.com/smebridge/ricoad_pub/main/"
 
     ota_updater = OTAUpdater(SSID, PSK, firmware_url, "main.py")
 
