@@ -7,7 +7,7 @@ from picographics import PicoGraphics, DISPLAY_COSMIC_UNICORN as DISPLAY
 
 machine.freq(200000000)
 
-#test
+#test 2
 
 cu = CosmicUnicorn()
 graphics = PicoGraphics(DISPLAY)
