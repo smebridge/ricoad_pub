@@ -38,7 +38,7 @@ def BOB():
     graphics.set_pen(BLACK)
     graphics.circle(centerx, centery, 8)
     
-def clear():
+def CLEARDISP():
     graphics.set_pen(BLACK)
     graphics.clear()
     
@@ -49,7 +49,7 @@ while True:
     time.sleep(1)
     cu.update(graphics)
     time.sleep(1)
-    clear()
+    CLEARDISP()
     time.sleep(1)
     cu.update(graphics)
     time.sleep(1)
