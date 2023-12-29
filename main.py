@@ -47,7 +47,7 @@ while max_wait > 0:
 
 if wlan.status() != 3:
     raise RuntimeError('Failed to join WIFI')
-    machine.soft_reset()
+    machine.sreset()
 else:
     print('CONNECTED!')
     status = wlan.ifconfig()
@@ -107,8 +107,8 @@ machine.RTC().datetime()
 import utime
 starttime = utime.time()
 
-def PERIODCHECKVER():
-    checkVER()
+#def PERIODCHECKVER():
+#    checkVER()
     #print("5 seconds have passed")
 
 html = """
@@ -177,6 +177,8 @@ while True:
 #         cu.adjust_brightness(-0.1)    
     #print("EOF")    
     nowtime = utime.time()
-    if (nowtime - starttime)>60:
-        PERIODCHECKVER()
+    timelapse = nowtime - starttime
+    if (timelapse > 60):
+        checkVER()
         starttime = nowtime
+
