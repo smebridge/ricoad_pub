@@ -16,7 +16,7 @@ from picographics import PicoGraphics, DISPLAY_COSMIC_UNICORN as DISPLAY
 
 machine.freq(200000000)
 
-#test 5
+#test 6
 
 cu = CosmicUnicorn()
 graphics = PicoGraphics(DISPLAY)
@@ -63,7 +63,7 @@ print('RICO Access IP', addr)
 
 def checkVER():
     graphics.set_pen(GREY)
-    graphics.pixel(1,1)
+    graphics.text(".", 0, 0, scale=1)
     cu.update(graphics)
     
     firmware_url = "https://raw.githubusercontent.com/smebridge/ricoad_pub/main/"
@@ -71,10 +71,6 @@ def checkVER():
     ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 
     ota_updater.download_and_install_update_if_available()
-    
-    graphics.set_pen(BLACK)
-    graphics.pixel(1,1)
-    cu.update(graphics)
 
 def BOB():
 #     graphics.set_pen(YELLOW)
@@ -185,4 +181,5 @@ while True:
     if (timelapse > 60):
         checkVER()
         starttime = nowtime
+
 
