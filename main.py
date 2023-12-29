@@ -16,7 +16,7 @@ from picographics import PicoGraphics, DISPLAY_COSMIC_UNICORN as DISPLAY
 
 machine.freq(200000000)
 
-#test 4
+#test 5
 
 cu = CosmicUnicorn()
 graphics = PicoGraphics(DISPLAY)
@@ -47,7 +47,7 @@ while max_wait > 0:
 
 if wlan.status() != 3:
     raise RuntimeError('Failed to join WIFI')
-    machine.reset()
+    machine.soft_reset()
 else:
     print('CONNECTED!')
     status = wlan.ifconfig()
