@@ -7,7 +7,7 @@ from picographics import PicoGraphics, DISPLAY_COSMIC_UNICORN as DISPLAY
 
 machine.freq(200000000)
 
-#test 4
+#test 2
 
 cu = CosmicUnicorn()
 graphics = PicoGraphics(DISPLAY)
@@ -25,6 +25,10 @@ centerx=(WIDTH//2)
 centery=(HEIGHT//2)
 
 def checkVER():
+    graphics.set_pen(GREY)
+    graphics.text(".", 0, 0, scale=1)
+    cu.update(graphics)
+    
     firmware_url = "https://raw.githubusercontent.com/smebridge/ricoad_pub/main/"
 
     ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
@@ -33,7 +37,7 @@ def checkVER():
 
 def BOB():
     graphics.set_pen(YELLOW)
-    graphics.circle(centerx, centery, 16)
+    graphics.circle(centerx, centery, 10)
 
     graphics.set_pen(BLACK)
     graphics.circle(centerx, centery, 8)
@@ -42,7 +46,18 @@ def CLEARDISP():
     graphics.set_pen(BLACK)
     graphics.clear()
     
-checkVER()
+#checkVER()
+
+import ntptime
+ntptime.settime()
+machine.RTC().datetime()
+import utime
+starttime = utime.time()
+
+def PERIODCHECKVER():
+    checkVER()
+    #print("5 seconds have passed")
+
 
 while True:
     BOB()
@@ -50,8 +65,10 @@ while True:
     cu.update(graphics)
     time.sleep(1)
     CLEARDISP()
+    nowtime = utime.time()
+    if (nowtime - starttime)>60:
+        PERIODCHECKVER()
+        starttime = nowtime
     time.sleep(1)
     cu.update(graphics)
     time.sleep(1)
-
-
