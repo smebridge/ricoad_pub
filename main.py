@@ -100,7 +100,7 @@ def CLEARDISP():
     graphics.clear()
     
 #checkVER()
-#time.sleep(5)
+time.sleep(4)
 import ntptime
 ntptime.settime()
 machine.RTC().datetime()
